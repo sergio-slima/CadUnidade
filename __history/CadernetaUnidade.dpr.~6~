@@ -1,0 +1,17 @@
+program CadernetaUnidade;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  UInicio in 'UInicio.pas' {FormInicio},
+  ULogin in 'ULogin.pas' {FormLogin},
+  UFacebook in 'UFacebook.pas' {FormFacebook};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormInicio, FormInicio);
+  Application.CreateForm(TFormFacebook, FormFacebook);
+  Application.Run;
+end.

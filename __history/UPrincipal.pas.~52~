@@ -1,0 +1,187 @@
+unit UPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView, FMX.Objects, FMX.StdCtrls, FMX.Controls.Presentation,
+  FMX.Layouts, FMX.MultiView, FMX.Ani, Data.DB;
+
+type
+  TFormPrincipal = class(TForm)
+    lytPrincipal: TLayout;
+    ToolBar1: TToolBar;
+    Rectangle5: TRectangle;
+    btnMenu: TButton;
+    lblTitulo: TLabel;
+    btnNovo: TButton;
+    lytListMesas: TLayout;
+    listMesas: TListView;
+    mvMenu: TMultiView;
+    rtgMenu: TRectangle;
+    rtgMenuTop: TRectangle;
+    lblNomeUnidade: TLabel;
+    VertScrollBox1: TVertScrollBox;
+    btnReunioes: TRectangle;
+    Image1: TImage;
+    Label4: TLabel;
+    btnDbvs: TRectangle;
+    Image2: TImage;
+    Label5: TLabel;
+    Line1: TLine;
+    btnSair: TRectangle;
+    Image3: TImage;
+    Label6: TLabel;
+    btnPerfil: TRectangle;
+    Image4: TImage;
+    Label7: TLabel;
+    rtgTransicao: TRectangle;
+    Rectangle1: TRectangle;
+    FloatAnimation: TFloatAnimation;
+    imgFotoUnidade: TImage;
+    Layout1: TLayout;
+    cleBrasaoUnidade: TCircle;
+    Layout2: TLayout;
+    Rectangle3: TRectangle;
+    Image5: TImage;
+    btnRequisitos: TRectangle;
+    Image6: TImage;
+    Label1: TLabel;
+    procedure btnSairClick(Sender: TObject);
+    procedure btnReunioesClick(Sender: TObject);
+    procedure btnPerfilClick(Sender: TObject);
+    procedure TransicaoForm;
+    procedure FloatAnimationFinish(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnRequisitosClick(Sender: TObject);
+  private
+    { Private declarations }
+    aTela : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPrincipal: TFormPrincipal;
+
+implementation
+
+{$R *.fmx}
+
+uses UPerfil, UDM, URequisitos;
+
+procedure TFormPrincipal.btnPerfilClick(Sender: TObject);
+begin
+  mvMenu.HideMaster;
+  aTela:= 'Perfil';
+  TransicaoForm;
+
+  if NOT Assigned(FormPerfil) then
+        Application.CreateForm(TFormPerfil, FormPerfil);
+
+  FormPerfil.Show;
+end;
+
+procedure TFormPrincipal.btnRequisitosClick(Sender: TObject);
+begin
+  mvMenu.HideMaster;
+  aTela:= 'Requisitos';
+  TransicaoForm;
+
+  FormRequisitos.Show;
+end;
+
+procedure TFormPrincipal.btnReunioesClick(Sender: TObject);
+begin
+  FormPrincipal.Show;
+  mvMenu.HideMaster;
+end;
+
+procedure TFormPrincipal.btnSairClick(Sender: TObject);
+begin
+ Application.Terminate;
+end;
+
+procedure TFormPrincipal.FloatAnimationFinish(Sender: TObject);
+begin
+  if FloatAnimation.Tag = 1 then
+  begin
+    FloatAnimation.Tag := 0;
+
+    if aTela = 'Perfil' then
+    begin
+      if not Assigned(FormPerfil) then
+        Application.CreateForm(TFormPerfil, FormPerfil);
+
+      FormPerfil.Show;
+    end else
+    if aTela = 'Requisitos' then
+    begin
+      FormRequisitos.Show;
+    end;
+  end;
+
+  FloatAnimation.Inverse := not FloatAnimation.Inverse;
+end;
+
+procedure TFormPrincipal.FormCreate(Sender: TObject);
+var
+  icone : TStream;
+  bmp : TBitmap;
+begin
+  DM.qryPerfil.Active := false;
+  DM.qryPerfil.SQL.Clear;
+  DM.qryPerfil.SQL.Add('SELECT * FROM PERFIL');
+  DM.qryPerfil.Active := true;
+  lblNomeUnidade.Text := DM.qryPerfil.FieldByName('UNIDADE').AsString;
+  if DM.qryPerfil.FieldByName('FOTO').AsString <> '' then
+  begin
+      try
+          icone := DM.qryPerfil.CreateBlobStream(
+                          DM.qryPerfil.FieldByName('FOTO'),
+                          bmread);
+
+          bmp := TBitmap.Create;
+          bmp.LoadFromStream(icone);
+
+          imgFotoUnidade.Bitmap := bmp;
+      finally
+          icone.DisposeOf;
+      end;
+  end;
+  bmp.DisposeOf;
+  if DM.qryPerfil.FieldByName('BRASAO').AsString <> '' then
+  begin
+      try
+          icone := DM.qryPerfil.CreateBlobStream(
+                          DM.qryPerfil.FieldByName('BRASAO'),
+                          bmread);
+
+          bmp := TBitmap.Create;
+          bmp.LoadFromStream(icone);
+
+          cleBrasaoUnidade.Fill.Bitmap.Bitmap := bmp;
+      finally
+          icone.DisposeOf;
+      end;
+  end;
+  bmp.DisposeOf;
+
+  rtgTransicao.Margins.Top := FormPrincipal.Height + 100;
+end;
+
+procedure TFormPrincipal.TransicaoForm;
+begin
+  rtgTransicao.BringToFront;
+//  ListBox.ItemIndex := -1;
+
+  FloatAnimation.Tag := 1;
+  FloatAnimation.Inverse := False;
+  FloatAnimation.StartValue := FormPrincipal.Height + 100;
+  FloatAnimation.StopValue := 0;
+  FloatAnimation.Start;
+end;
+
+end.

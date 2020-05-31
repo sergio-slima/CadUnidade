@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/03/03 09:32:49.000.285,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/03/03 09:36:03.000.735,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\ULogin.fmx</Transaction>
+    <Transaction>2020/03/03 09:36:03.000.735,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\ULogin.pas</Transaction>
+    <Transaction>2020/03/03 09:36:55.000.705,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaUnidade.dproj</Transaction>
+    <Transaction>2020/03/04 14:16:14.000.100,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\ULogin.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UInicio.pas</Transaction>
+    <Transaction>2020/03/04 14:16:14.000.100,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\ULogin.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UInicio.fmx</Transaction>
+    <Transaction>2020/03/04 14:17:05.000.866,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/04 14:17:20.000.984,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\ULogin.fmx</Transaction>
+    <Transaction>2020/03/04 14:17:20.000.984,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\ULogin.pas</Transaction>
+    <Transaction>2020/03/06 12:01:45.000.253,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/06 14:36:56.000.426,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UFacebook.fmx</Transaction>
+    <Transaction>2020/03/06 14:36:56.000.426,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UFacebook.pas</Transaction>
+    <Transaction>2020/03/09 21:59:06.000.669,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/09 21:59:26.000.983,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UDM.dfm=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.dfm</Transaction>
+    <Transaction>2020/03/09 21:59:26.000.983,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UDM.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/09 23:34:46.000.123,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/09 23:35:01.000.873,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UPrincipal.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/09 23:35:01.000.874,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UPrincipal.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.fmx</Transaction>
+    <Transaction>2020/03/10 21:35:37.000.935,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/03/10 21:36:02.000.240,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UPerfil.pas</Transaction>
+    <Transaction>2020/03/10 21:36:02.000.240,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\UPerfil.fmx</Transaction>
+    <Transaction>2020/03/21 16:49:46.000.829,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaDBV.dproj=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaUnidade.dproj</Transaction>
+    <Transaction>2020/04/11 23:32:01.000.723,=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas</Transaction>
+    <Transaction>2020/04/11 23:32:50.000.573,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.fmx=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\URequisitos.fmx</Transaction>
+    <Transaction>2020/04/11 23:32:50.000.573,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\Unit1.pas=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\URequisitos.pas</Transaction>
+    <Transaction>2020/05/26 20:21:12.880,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaDbv1.dproj=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaDBV.dproj</Transaction>
+    <Transaction>2020/05/26 20:21:39.846,D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaDbv.dproj=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\Projects\CadUnidade\CadernetaDbv1.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="0024244874"/>
+	</ActiveMobileDevice>
+</BorlandProject>

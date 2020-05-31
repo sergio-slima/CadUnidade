@@ -1,0 +1,75 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 369
+  Width = 427
+  object Connexao: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\P' +
+        'rojects\CadUnidade\banco.sqlite'
+      'User_Name=root'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    BeforeConnect = ConnexaoBeforeConnect
+    Left = 48
+    Top = 16
+  end
+  object qryUsuarios: TFDQuery
+    Connection = Connexao
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 48
+    Top = 80
+  end
+  object qryPerfil: TFDQuery
+    Connection = Connexao
+    SQL.Strings = (
+      'select * from perfil')
+    Left = 48
+    Top = 136
+  end
+  object qryRequisitos: TFDQuery
+    SQL.Strings = (
+      'select * from configuracoes')
+    Left = 48
+    Top = 200
+    object qryRequisitoscodigo: TFDAutoIncField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object qryRequisitosdescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 30
+    end
+    object qryRequisitosloja: TWideStringField
+      FieldName = 'loja'
+      Origin = 'loja'
+      Size = 2
+    end
+    object qryRequisitosusuario: TWideStringField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+      Size = 2
+    end
+    object qryRequisitosservidor: TWideStringField
+      FieldName = 'servidor'
+      Origin = 'servidor'
+      Size = 30
+    end
+    object qryRequisitosregistros: TWideStringField
+      FieldName = 'registros'
+      Origin = 'registros'
+      Size = 5
+    end
+    object qryRequisitostoken: TWideStringField
+      FieldName = 'token'
+      Origin = 'token'
+      Required = True
+      Size = 10
+    end
+  end
+end

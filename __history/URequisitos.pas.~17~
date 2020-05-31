@@ -1,0 +1,123 @@
+unit URequisitos;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.ListView.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
+  Data.Bind.Components, Data.Bind.DBScope, FMX.ListView, FMX.Edit, FMX.Layouts;
+
+type
+  TFormRequisitos = class(TForm)
+    ToolBar5: TToolBar;
+    Rectangle9: TRectangle;
+    img_fechar: TImage;
+    Label27: TLabel;
+    Layout5: TLayout;
+    edtRequisitos: TEdit;
+    imgAdd: TImage;
+    lvRequisitos: TListView;
+    BindingsList1: TBindingsList;
+    LinkListControlToField1: TLinkListControlToField;
+    BindSourceDB1: TBindSourceDB;
+    Rectangle1: TRectangle;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure img_fecharClick(Sender: TObject);
+    procedure imgAddClick(Sender: TObject);
+  private
+    { Private declarations }
+    Acao: Integer;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRequisitos: TFormRequisitos;
+
+implementation
+
+{$R *.fmx}
+
+uses UPrincipal, UDM;
+
+procedure TFormRequisitos.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+  FormRequisitos := nil;
+
+  FormPrincipal.FloatAnimation.Start;
+end;
+
+procedure TFormRequisitos.FormKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+{$IFDEF ANDROID}
+var
+  FService : IFMXVirtualKeyboardService;
+{$ENDIF}
+begin
+  {$IFDEF ANDROID}
+  if (Key = vkHardwareBack) then
+  begin
+    TPlatformServices.Current.SupportsPlatformService(IFMXVirtualKeyboardService, IInterface(FService));
+
+    if (FService <> nil) and (TVirtualKeyboardState.Visible in FService.VirtualKeyboardState) then
+    begin
+      // Botao back pressionado e teclado visivel...
+      // (Apenas fecha o teclado)
+    end else
+    begin
+      // Botao back pressionado e teclado não visivel...
+      Key := 0;
+      Close;
+    end;
+  end;
+  {$ENDIF}
+end;
+
+procedure TFormRequisitos.imgAddClick(Sender: TObject);
+begin
+  with DM.qryReq do
+  begin
+    case Acao of
+      1:
+      begin
+        Close;
+        SQL.Clear;
+        SQL.Add('update requisitos set descricao = :descricao where codigo = :codigo');
+        ParamByName('descricao').Value := edtRequisitos.Text;
+        ParamByName('codigo').Value := DM.qryRequisitosid.Value;
+        ExecSQL;
+
+        DM.qryRequisitos.Refresh;
+      end;
+
+      0:
+      begin
+        Close;
+        SQL.Clear;
+        SQL.Add('insert into configuracoes (descricao) values (:descricao)');
+        ParamByName('descricao').Value := edtDescricao.Text;
+        ParamByName('loja').Value := edtLoja.Text;
+        ParamByName('usuario').Value := edtUsuario.Text;
+        ParamByName('servidor').Value := edtServidor.Text;
+        ParamByName('registros').Value := edtRegistros.Text;
+        ParamByName('token').Value := edtToken.Text;
+        ExecSQL;
+
+        DM.qryRequisitos.Refresh;
+      end;
+    end;
+  end;
+end;
+
+procedure TFormRequisitos.img_fecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

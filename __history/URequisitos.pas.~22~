@@ -1,0 +1,72 @@
+unit URequisitos;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.ListView.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
+  Data.Bind.Components, Data.Bind.DBScope, FMX.ListView, FMX.Edit, FMX.Layouts;
+
+type
+  TFormRequisitos = class(TForm)
+    ToolBar5: TToolBar;
+    Rectangle9: TRectangle;
+    img_fechar: TImage;
+    Label27: TLabel;
+    Layout5: TLayout;
+    edtRequisitos: TEdit;
+    imgAdd: TImage;
+    lvRequisitos: TListView;
+    BindingsList1: TBindingsList;
+    LinkListControlToField1: TLinkListControlToField;
+    BindSourceDB1: TBindSourceDB;
+    Rectangle1: TRectangle;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure img_fecharClick(Sender: TObject);
+    procedure imgAddClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRequisitos: TFormRequisitos;
+
+implementation
+
+{$R *.fmx}
+
+uses UPrincipal, UDM;
+
+procedure TFormRequisitos.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+  FormRequisitos := nil;
+
+  FormPrincipal.FloatAnimation.Start;
+end;
+
+procedure TFormRequisitos.imgAddClick(Sender: TObject);
+begin
+  with DM.qryReq do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('insert into requisitos (descricao) values (:descricao)');
+    ParamByName('descricao').Value := edtRequisitos.Text;
+    ExecSQL;
+
+    DM.qryRequisitos.Refresh;
+  end;
+end;
+
+procedure TFormRequisitos.img_fecharClick(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+end.

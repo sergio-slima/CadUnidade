@@ -1,0 +1,36 @@
+object FormFacebook: TFormFacebook
+  Left = 0
+  Top = 0
+  Caption = 'FormFacebook'
+  ClientHeight = 480
+  ClientWidth = 290
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Rectangle1: TRectangle
+    Align = Top
+    Fill.Color = xFF3B5998
+    Size.Width = 290.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object SpeedButton1: TSpeedButton
+      Align = Left
+      StyledSettings = [Family, Size, Style]
+      Size.Width = 80.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Cancelar'
+      TextSettings.FontColor = claWhite
+    end
+  end
+  object WebBrowser1: TWebBrowser
+    EnableCaching = False
+    Align = Client
+    Size.Width = 290.000000000000000000
+    Size.Height = 430.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

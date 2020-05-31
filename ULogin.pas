@@ -1,0 +1,53 @@
+unit ULogin;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.TabControl;
+
+type
+  TFormLogin = class(TForm)
+    Rectangle1: TRectangle;
+    Layout1: TLayout;
+    Image1: TImage;
+    Label1: TLabel;
+    Layout8: TLayout;
+    Image2: TImage;
+    Layout2: TLayout;
+    Layout6: TLayout;
+    Rectangle2: TRectangle;
+    SpeedButton1: TSpeedButton;
+    Path1: TPath;
+    Layout3: TLayout;
+    Layout7: TLayout;
+    Label2: TLabel;
+    Line1: TLine;
+    Line2: TLine;
+    Layout4: TLayout;
+    Label3: TLabel;
+    Layout5: TLayout;
+    Line3: TLine;
+    Label4: TLabel;
+    Label5: TLabel;
+    Layout9: TLayout;
+    TabControl: TTabControl;
+    TabInicio: TTabItem;
+    TabTelefone: TTabItem;
+    TabEmail: TTabItem;
+    TabLogin: TTabItem;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLogin: TFormLogin;
+
+implementation
+
+{$R *.fmx}
+
+end.

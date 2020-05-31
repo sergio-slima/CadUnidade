@@ -1,0 +1,21 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 369
+  Width = 427
+  object Connexao: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\P' +
+        'rojects\CadUnidade\banco.sqlite'
+      'User_Name=root'
+      'DriverID=SQLite')
+    LoginPrompt = False
+    Left = 48
+    Top = 16
+  end
+  object SqlUsuarios: TFDTable
+    Connection = Connexao
+    Left = 48
+    Top = 72
+  end
+end

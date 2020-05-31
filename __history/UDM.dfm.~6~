@@ -1,0 +1,32 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 369
+  Width = 427
+  object Connexao: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\Desenvolvimento\Documents\Embarcadero\Studio\P' +
+        'rojects\CadUnidade\banco.sqlite'
+      'User_Name=root'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    BeforeConnect = ConnexaoBeforeConnect
+    Left = 48
+    Top = 16
+  end
+  object qryUsuarios: TFDQuery
+    Connection = Connexao
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 48
+    Top = 80
+  end
+  object qryPerfil: TFDQuery
+    Connection = Connexao
+    SQL.Strings = (
+      'select * from perfil')
+    Left = 48
+    Top = 136
+  end
+end
